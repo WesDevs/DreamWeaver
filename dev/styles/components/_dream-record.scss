@@ -1,18 +1,17 @@
 .dream-record {
-    height: 100vh;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     background: url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
     background-size: auto 100vh;
     background-attachment: fixed;
-    overflow: scroll;
-    overflow-x: hidden;
     
     li {
         list-style-type: none;
+        font-family: $titan;
         width: 80%;
         margin: 5px auto;
         height: 80px;
@@ -34,6 +33,18 @@
             &:hover {
                 color: red;
             }
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    
+    .dream-record {
+        flex-direction: column;
+        li {
+            width: 45%;
+            font-size: 1.3rem;
+            height: 15%;
         }
     }
 }

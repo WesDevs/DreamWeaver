@@ -139,47 +139,56 @@ class App extends React.Component {
   removeDream(remove) {
     firebase.database().ref(`Dreams/${remove}`).remove();
    
-    // const scratchpad = this.state.dreamRecords;
-    // let newColorArray = [];
-    // scratchpad.map(incomingColor => {
-    //   newColorArray.push(incomingColor.color);
-    // })
+    const scratchpad = this.state.dreamRecords;
+    let newColorArray = [];
+    scratchpad.map(incomingColor => {
+      newColorArray.push(incomingColor.color);
+    })
 
-    // firebase.database().ref('colorArray').remove();
+    firebase.database().ref('colorArray').remove();
 
-    // const colorTrade = newColorArray.map(gradientColor => {
-    //   // if gradientColor  === 1 then return blue
-    //   if (gradientColor === '0') {
-    //     return 'indigo';
-    //   } else if (gradientColor === '1') {
-    //     return 'purple';
-    //   } else if (gradientColor === '2') {
-    //     return 'navy';
-    //   } else if (gradientColor === '3') {
-    //     return 'forestgreen ';
-    //   } else if (gradientColor === '4') {
-    //     return 'gold';
-    //   } else if (gradientColor === '5') {
-    //     return 'yellow';
-    //   } else if (gradientColor === '6') {
-    //     return 'orange';
-    //   } else if (gradientColor === '7') {
-    //     return 'red';
-    //   } else if (gradientColor === '8') {
-    //     return 'pink';
-    //   } else if (gradientColor === '9') {
-    //     return 'plum';
-    //   } else if (gradientColor === '10') {
-    //     return 'aqua';
-    //   } else if (gradientColor === '11') {
-    //     return 'greenyellow';
-    //   } else {
-    //     return 'white';
-    //   }
-    // })
-    // const dbColorRef = firebase.database().ref('colorArray');
-    // dbColorRef.push(colorTrade);
+    const colorTrade = newColorArray.map(gradientColor => {
+      // if gradientColor  === 1 then return blue
+      if (gradientColor === '0') {
+        return 'indigo';
+      } else if (gradientColor === '1') {
+        return 'purple';
+      } else if (gradientColor === '2') {
+        return 'navy';
+      } else if (gradientColor === '3') {
+        return 'forestgreen ';
+      } else if (gradientColor === '4') {
+        return 'gold';
+      } else if (gradientColor === '5') {
+        return 'yellow';
+      } else if (gradientColor === '6') {
+        return 'orange';
+      } else if (gradientColor === '7') {
+        return 'red';
+      } else if (gradientColor === '8') {
+        return 'pink';
+      } else if (gradientColor === '9') {
+        return 'plum';
+      } else if (gradientColor === '10') {
+        return 'aqua';
+      } else if (gradientColor === '11') {
+        return 'greenyellow';
+      } else {
+        return 'white';
+      }
+    })
+    const dbColorRef = firebase.database().ref('colorArray');
+    dbColorRef.push(colorTrade);
   } 
+
+  colorRendering() {
+    
+    const color = this.state.colorArray;
+    color.map(color => {
+      color
+    })
+  
+  }
 
   colorTranslator(color) {
     
@@ -249,7 +258,7 @@ class App extends React.Component {
 
         <div className="description-wrapper" id="description">
           <h3>Hi there brave dreamer!</h3> 
-          <p> Dream weaver allows you to record your 12 most haunting/harrowing/enjoyable/exciting and/or NSFW dreams.  Once you've completed 12 entries click on "See Dream Progression" and you'll be able to see a piece of art populated with colours that coresponds to your dream ratings. (We recommend 1 record a month and seeing your results in a year!)</p>
+          <p> Dream weaver allows you to record your 12 most haunting/harrowing/enjoyable/exciting/(even NSFW) dreams.  Once you've completed 12 entries click on "See Dream Progression" and you'll be able to see a piece of art populated with colours that coresponds to your dream ratings. (We recommend 1 record a month and seeing your results in a year!)</p>
           <a href="#form">Next</a>
         </div>
   
@@ -259,7 +268,7 @@ class App extends React.Component {
               <label htmlFor="date" >Date</label>
               <input className="date" name="date" type="date" onChange={this.handleChange}  required/>
               <label htmlFor="dream">My Dream</label>
-              <input type="text" name="dream" placeholder="Your dream...." onChange={this.handleChange}  required></input>
+              <textarea name="dream" placeholder="Your dream...." onChange={this.handleChange}  required></textarea>
               <div className="dream-rating">
                 <p>Negative</p>
                 <input type="range" min="0" max="12" name="color" onChange={this.handleChange}/>
@@ -289,10 +298,9 @@ class App extends React.Component {
         
         </div>
 
-        <div id="dreams"   className="art" ref={ref => this.dream = ref}>
+        <div id="dreams" style={backgroundGradient} className="art" ref={ref => this.dream = ref}>
           <h1>MORPHEUS</h1>
         </div>
-
       </main>
     )
   }
