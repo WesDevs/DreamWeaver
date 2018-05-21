@@ -1,0 +1,20 @@
+header {
+    font-family: $pacifico;
+    margin: 0;
+    width: 100%;
+    font-size: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;  
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
+    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background-size: auto 100vh;
+    background-attachment: fixed;
+    
+    h1 {
+        color: white;
+        line-height: 8rem;
+        text-shadow: 0.5rem 0.5rem 0.5rem rgba(188, 241, 175, 0.863);
+    }
+}
+

@@ -1,0 +1,33 @@
+.art {
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+  
+    h1 {
+        transform: rotate(90deg);
+        margin: 0;
+        display: block;
+        font-weight: bold;
+        font-size: 8rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .art h1 {
+        transform: rotate(0);
+    }
+}
+
+@media (min-width: 850px) {
+    .art h1 {
+        font-size: 14rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .art h1 {
+        font-size: 20rem;
+    }
+}
+

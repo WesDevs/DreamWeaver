@@ -1,0 +1,49 @@
+.description-wrapper {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
+    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background-size: auto 100vh;
+    background-attachment: fixed;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+        font-size: 2.5rem;
+        font-family: $titan;
+        color: white;
+        line-height: 30px;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-family: $titan;
+        color: white;
+        padding: 1rem 0;
+        line-height: 23px;
+    }
+
+    h3,
+    p {
+        margin: 0;
+        text-align: center;
+        text-shadow: 0px 0.3rem 0.3rem black;
+    }
+
+}
+
+@media (min-width: 600px) {
+    .description-wrapper {
+
+        h3 {
+            font-size: 3rem;
+        }
+        
+        p {
+            line-height: 50px;
+            font-size: 1.8rem;
+        }
+    } 
+    
+}

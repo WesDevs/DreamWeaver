@@ -1,0 +1,27 @@
+.progression {
+    background: url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background-size: auto 100vh;
+    background-attachment: fixed;
+    height: 20vh;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    a {
+        color: white;
+        background: transparent;
+        font-size: 2.5rem;
+        border: 3px white double;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-family: $titan;
+        text-shadow: 0.1rem 0.2rem 0.3rem rgba(188, 241, 175, 0.863);
+        transition: 0.3s ease;
+        text-align: center;
+        &:hover {
+            background: rgba(188, 241, 175, 0.452);
+            border: double 3px white;
+        }
+    }
+}

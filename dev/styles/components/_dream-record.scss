@@ -1,0 +1,39 @@
+.dream-record {
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: space-between;
+    background: url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background-size: auto 100vh;
+    background-attachment: fixed;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+    li {
+        list-style-type: none;
+        width: 80%;
+        margin: 5px auto;
+        height: 80px;
+        border: 2px solid rgb(91, 207, 211);
+        border-radius: 10px;
+        padding: 5px 10px;
+        overflow: hidden;
+        position: relative;
+        background: rgb(255, 255, 255);
+        box-shadow: 0 1rem 1rem rgb(218, 215, 215) inset;
+        
+        button {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}

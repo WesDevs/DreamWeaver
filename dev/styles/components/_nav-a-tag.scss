@@ -1,0 +1,19 @@
+    
+    a {
+        transition: 0.3s ease;
+        font-size: 2.5rem;
+        font-family: $titan;
+        margin: 0 auto;
+        padding: 1.2rem 2.5rem;
+        background: transparent;
+        color: white;
+        text-shadow: 0.1rem 0.2rem 0.3rem rgba(188, 241, 175, 0.863);
+        border-radius: 10px;
+        border: double 3px lightgrey;
+        text-decoration: none;
+        &:hover,
+        &:active {
+            background: rgba(188, 241, 175, 0.452);
+            border: double 3px white;
+        }
+    }
