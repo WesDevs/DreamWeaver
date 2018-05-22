@@ -234,17 +234,24 @@ class App extends React.Component {
     dbColorRef.push(colorTrade);
 
 
-    if (this.state.colorArray[0].length === 12) {
-      this.dream.classList.toggle("show");
-    } else {
-      this.dream.classList.remove("show");
-    }
+    if (this.state.colorArray.length > 0) {
+      if (this.state.colorArray[0].length === 12) {
+        this.dream.classList.toggle("show");
+      } else {
+        this.dream.classList.remove("show");
+      }
+    } 
   }
 
   render() {
 
+    const linearGradient =
+      this.state.colorArray.length > 0 ?
+      `radial-gradient(circle at 10%, ${this.state.colorArray[0][0]}, ${this.state.colorArray[0][1]}, ${this.state.colorArray[0][2]}, ${this.state.colorArray[0][3]}, ${this.state.colorArray[0][4]}, ${this.state.colorArray[0][5]}, ${this.state.colorArray[0][6]}, ${this.state.colorArray[0][7]}, ${this.state.colorArray[0][8]}, ${this.state.colorArray[0][9]}, ${this.state.colorArray[0][10]}, ${this.state.colorArray[0][11]})`:
+      `white`
+
     const backgroundGradient = {
-      background: `linear-gradient(145deg, ${this.state.colorArray[0][0]}, ${this.state.colorArray[0][1]}, ${this.state.colorArray[0][2]}, ${this.state.colorArray[0][3]}, ${this.state.colorArray[0][4]}, ${this.state.colorArray[0][5]}, ${this.state.colorArray[0][6]}, ${this.state.colorArray[0][7]}, ${this.state.colorArray[0][8]}, ${this.state.colorArray[0][9]}, ${this.state.colorArray[0][10]}, ${this.state.colorArray[0][11]})`,
+      background: linearGradient,
       height: '100vh',
     }
 
@@ -258,23 +265,26 @@ class App extends React.Component {
 
         <div className="description-wrapper" id="description">
           <h3>Hi there brave dreamer!</h3> 
-          <p> Dream weaver allows you to record your 12 most haunting/harrowing/enjoyable/exciting/(even NSFW) dreams.  Once you've completed 12 entries click on "See Dream Progression" and you'll be able to see a piece of art populated with colours that coresponds to your dream ratings. (We recommend 1 record a month and seeing your results in a year!)</p>
+          <p> Dream weaver allows you to record your 12 most haunting / harrowing / enjoyable / exciting / (even NSFW) dreams.  Once you've completed 12 entries click on "See Dream Progression" and you'll be able to see a piece of art populated with colours that corresponds to your dream ratings. (We recommend 1 record a month and seeing your results in a year!)</p>
           <a href="#form">Next</a>
         </div>
   
         <section id="form" className="dream-form">
+          <img src="public/assets/angel.png" alt="An angel" className="left-angel"/>
+          <img src="public/assets/angel.png" alt="An angel" className="right-angel"/>
           <div>
             <form onSubmit={this.handleSubmit}>
               <label htmlFor="date" >Date</label>
-              <input className="date" name="date" type="date" onChange={this.handleChange}  required/>
+              <input className="date" name="date" type="date" onChange={this.handleChange}/>
               <label htmlFor="dream">My Dream</label>
-              <textarea name="dream" placeholder="Your dream...." onChange={this.handleChange}  required></textarea>
+              <textarea name="dream" placeholder="Your dream...." onChange={this.handleChange}></textarea>
               <div className="dream-rating">
                 <p>Negative</p>
                 <input type="range" min="0" max="12" name="color" onChange={this.handleChange}/>
                 <p>Positive</p>
               </div>
               <input type="submit" value="Record Dream" />
+              <p className="notice">*  Scroll Down to See Recorded Dreams  *</p>
             </form>
           </div>
         </section>
@@ -298,9 +308,12 @@ class App extends React.Component {
         
         </div>
 
+
+
         <div id="dreams" style={backgroundGradient} className="art" ref={ref => this.dream = ref}>
           <h1>MORPHEUS</h1>
         </div>
+
       </main>
     )
   }

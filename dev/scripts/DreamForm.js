@@ -6,7 +6,7 @@ const DreamForm = (props) => {
 
         <li>
             <button onClick = {() => props.removeDream(props.firebaseKey)}>X</button>
-            <p>{props.date}</p>
+            <h4>{props.date}</h4>
             <p>{props.dream}</p>
 
         </li>

@@ -18,3 +18,14 @@ header {
     }
 }
 
+@media (min-width: 850px) {
+    header {
+        font-size: 6rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    header {
+        font-size: 8rem;
+    }
+}

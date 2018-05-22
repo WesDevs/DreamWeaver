@@ -1,5 +1,6 @@
 .progression {
-    background: url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
+    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
     background-size: auto 100vh;
     background-attachment: fixed;
     height: 20vh;
@@ -19,6 +20,7 @@
         text-shadow: 0.1rem 0.2rem 0.3rem rgba(188, 241, 175, 0.863);
         transition: 0.3s ease;
         text-align: center;
+        
         &:hover {
             background: rgba(188, 241, 175, 0.452);
             border: double 3px white;

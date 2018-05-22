@@ -1,9 +1,29 @@
 .dream-form {
-    background: url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
+    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
     height: 100vh;
     background-size: auto 100vh;
     background-attachment: fixed;
-    padding: 20px 15px;
+    padding: 20px 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .left-angel,
+    .right-angel {
+        display: none;
+        position: absolute;
+    }
+
+    .left-angel {
+        left: 15%;
+        transform: rotate(20deg);
+    }
+
+    .right-angel {
+        right: 15%;
+        transform: rotate(-20deg);
+    }
 
     div {
         background:rgb(213, 203, 231);
@@ -17,6 +37,7 @@
         box-shadow: 0 0.1rem 1rem rgba(236, 215, 236, 0.911);
         max-width: 630px;
         margin: 0 auto;
+        position: relative;
 
         form {
             display: flex;
@@ -27,7 +48,7 @@
             align-items: center;
             
             label {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
                 margin: 10px 0;
                 text-align: center;
                 text-shadow: 0 0.2rem 0.2rem black;
@@ -38,15 +59,17 @@
                 display: flex;
                 padding: 10px;
                 margin-bottom: 20px;
+                font-family: $comfort;
             }
 
             textarea {
                 border-radius: 10px;
                 padding: 10px;
                 width: 100%;
-                font-size: 1.1rem;
+                font-size: 1.4rem;
                 margin-bottom: 15px;
                 height: 300px;
+                font-family: $comfort;
             }
 
             .dream-rating {
@@ -54,7 +77,7 @@
                 max-width: 300px;
                 flex-direction: row;
                 align-items: center;
-                margin: 10% 0;
+                margin: 20px 0;
                 background:linear-gradient(90deg, rgb(126, 64, 241), rgb(0, 245, 212) );
                 border: white 2px solid;
                 padding: 0 10px;
@@ -69,27 +92,71 @@
             }
         
             input[type=submit] {
-            color: black;
-            background: white;
+            color: white;
+            background: rgba(103, 1, 134, 0.678);
             border-radius: 10px;
             padding: 10px 20px;
             font-size: 1.2rem;
-            margin: 0 auto;
-            border: double 3px grey;
+            margin: 10px auto;
+            border: double 3px rgb(255, 255, 255);
+            text-shadow: 0 0.2rem 0.1rem black;
 
                 &:hover,
                 &:active {
-                    background: grey;
-                    color: white;
-                    border: white double 3px;
+                    background: rgba(241, 71, 247, 0.322);
+                    border: double 3px white;
                 }
+            }
+            
+            .notice {
+                position: absolute;
+                bottom: 0;
+                text-shadow: 0 0.2rem 0.2rem black;
             }
         }
     }
 }
 
 @media (min-width: 550px) {
-    .dream-form form {
-        height: 520px;
+    
+    .dream-form {
+
+        .left-angel,
+        .right-angel {
+            display: block;
+        }
+
+        div {
+            max-height: 550px;
+            margin-top: 30px;
+            
+            form {
+                height: 520px;
+                padding: 20px 40px;
+
+                label {
+                    font-size: 3rem;
+                }
+
+                textarea {
+                    height: 900px;
+                    margin: 0 100px;
+                }
+
+                .date,
+                textarea {
+                    font-size: 1.5rem;
+                    padding: 15px;
+                }
+
+                .dream-rating p {
+                    font-size: 1.5rem;
+                }
+                
+                input[type=submit] {
+                    font-size: 2rem;
+                }
+            }
+        }
     }
 }
