@@ -1,8 +1,6 @@
 .progression {
-    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
-    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background: rgb(93, 86, 131);
     background-size: auto 100vh;
-    background-attachment: fixed;
     height: 20vh;
     padding: 0 20px;
     display: flex;
@@ -25,5 +23,12 @@
             background: rgba(188, 241, 175, 0.452);
             border: double 3px white;
         }
+    }
+}
+
+@media (min-width: 600px) {
+    .progression {
+        background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)), url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+        background-attachment: fixed;
     }
 }

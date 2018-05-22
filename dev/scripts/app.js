@@ -36,6 +36,7 @@ class App extends React.Component {
   this.colorTranslator = this.colorTranslator.bind(this);
   }
   
+  // Returns data from Firebase
   componentDidMount() {
     
     const dbRef = firebase.database().ref('Dreams');
@@ -68,10 +69,7 @@ class App extends React.Component {
     })
   }
 
-  // Need a function that records the input and then stores it into fb
-  // It tracks the following properties: 
-    // The date submitted
-    // the dream written in the input text
+// On Submit stores input into object
 
   handleSubmit(e) {
     e.preventDefault();
@@ -88,14 +86,18 @@ class App extends React.Component {
       dbRef.push(dreamRecord);
     }
     
+
+    // Maps dreamRecords and extracts the color ratings into a new
+    // Array
     const scratchpad = this.state.dreamRecords;
     let newColorArray = [];
     scratchpad.map(incomingColor => {
       newColorArray.push(incomingColor.color);
     })
 
+    // Removes colorArray
     firebase.database().ref('colorArray').remove();
-
+    // Updates colorArray
     const colorTrade = newColorArray.map(gradientColor => {
       // if gradientColor  === 1 then return blue
       if (gradientColor === '0') {
@@ -136,17 +138,23 @@ class App extends React.Component {
     });
   }
 
+  // Removes tracked item 
   removeDream(remove) {
     firebase.database().ref(`Dreams/${remove}`).remove();
    
+
+    // Maps dreamRecords and extracts the color ratings into a new
+    // Array
     const scratchpad = this.state.dreamRecords;
     let newColorArray = [];
     scratchpad.map(incomingColor => {
       newColorArray.push(incomingColor.color);
     })
 
+    // Clears colorArray
     firebase.database().ref('colorArray').remove();
 
+    // Pushes colorArray to firebase
     const colorTrade = newColorArray.map(gradientColor => {
       // if gradientColor  === 1 then return blue
       if (gradientColor === '0') {
@@ -181,27 +189,23 @@ class App extends React.Component {
     dbColorRef.push(colorTrade);
   } 
 
-  colorRendering() {
-    
-    const color = this.state.colorArray;
-    color.map(color => {
-      color
-    })
-  
-  }
-
+  // Dream Progression Function
   colorTranslator(color) {
     
+    // Maps dreamRecords and extracts the color ratings into a new
+    // Array
     const scratchpad = this.state.dreamRecords;
     let newColorArray = [];
     scratchpad.map(incomingColor => {
       newColorArray.push(incomingColor.color);
     })
 
+    // Removes colorArray
     firebase.database().ref('colorArray/').remove();
 
+    // Updates colorArray
     const colorTrade = newColorArray.map(gradientColor => {
-      // if gradientColor  === 1 then return blue
+
       if (gradientColor === '0') {
         return 'indigo';
       } else if (gradientColor === '1') {
@@ -233,7 +237,9 @@ class App extends React.Component {
     const dbColorRef = firebase.database().ref('colorArray');
     dbColorRef.push(colorTrade);
 
-
+    // If there is no records in the array, then do nothing
+    // If there is 12 entries, then we can show the art 
+    // else hide it.
     if (this.state.colorArray.length > 0) {
       if (this.state.colorArray[0].length === 12) {
         this.dream.classList.toggle("show");
@@ -245,6 +251,7 @@ class App extends React.Component {
 
   render() {
 
+    // Radial-gradient styling variable
     const linearGradient =
       this.state.colorArray.length > 0 ?
       `radial-gradient(circle at 10%, ${this.state.colorArray[0][0]}, ${this.state.colorArray[0][1]}, ${this.state.colorArray[0][2]}, ${this.state.colorArray[0][3]}, ${this.state.colorArray[0][4]}, ${this.state.colorArray[0][5]}, ${this.state.colorArray[0][6]}, ${this.state.colorArray[0][7]}, ${this.state.colorArray[0][8]}, ${this.state.colorArray[0][9]}, ${this.state.colorArray[0][10]}, ${this.state.colorArray[0][11]})`:

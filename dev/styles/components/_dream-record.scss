@@ -6,10 +6,8 @@
     margin: 0;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
-    url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+    background: rgb(93, 86, 131);
     background-size: auto 100vh;
-    background-attachment: fixed;
     position: relative;
     
     li {
@@ -39,12 +37,21 @@
 
         &:hover,
         &:active {
-            height: 40vh;
+            height: 50vh;
             z-index: 9;
 
         }
     }
 }
+
+@media (min-width: 600px) {
+    .dream-record {
+        background: linear-gradient(180deg, rgba(29, 29, 29, 0.192), rgba(29, 29, 29, 0.192)),
+        url(../assets/anders-jilden-24221-unsplash.jpg) no-repeat;
+        background-attachment: fixed;
+    }
+}
+
 
 @media (min-width: 700px) {
     
